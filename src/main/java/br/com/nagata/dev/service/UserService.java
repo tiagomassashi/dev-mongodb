@@ -31,4 +31,9 @@ public class UserService {
   public User insert(UserDTO userDto) {
     return repository.save(new User(userDto));
   }
+
+  public void delete(String id) {
+    findById(id);
+    repository.deleteById(id);
+  }
 }
