@@ -1,6 +1,7 @@
 package br.com.nagata.dev.service;
 
 import br.com.nagata.dev.model.User;
+import br.com.nagata.dev.model.dto.UserDTO;
 import br.com.nagata.dev.repository.UserRepository;
 import br.com.nagata.dev.service.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,9 @@ public class UserService {
     return repository
         .findById(id)
         .orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+  }
+
+  public User insert(UserDTO userDto) {
+    return repository.save(new User(userDto));
   }
 }
