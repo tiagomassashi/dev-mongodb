@@ -2,6 +2,7 @@ package br.com.nagata.dev.service;
 
 import br.com.nagata.dev.model.User;
 import br.com.nagata.dev.repository.UserRepository;
+import br.com.nagata.dev.service.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +19,11 @@ public class UserService {
 
   public List<User> findAll() {
     return repository.findAll();
+  }
+
+  public User findById(String id) {
+    return repository
+        .findById(id)
+        .orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
   }
 }
