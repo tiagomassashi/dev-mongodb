@@ -3,3 +3,8 @@ server:
   port: 8080
   servlet:
     context-path: /dev-mongodb
+
+# Database configurations
+spring.data:
+  mongodb:
+    uri: mongodb://root:root@localhost:27017/workshop_mongo?authSource=admin
