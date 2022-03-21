@@ -1,6 +1,7 @@
 package br.com.nagata.dev.model;
 
 import br.com.nagata.dev.model.dto.AuthorDTO;
+import br.com.nagata.dev.model.dto.CommentDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,4 +26,5 @@ public class Post implements Serializable {
   private String title;
   private String body;
   private AuthorDTO author;
+  private List<CommentDTO> comments;
 }
