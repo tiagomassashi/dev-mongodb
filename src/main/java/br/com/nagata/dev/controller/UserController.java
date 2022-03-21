@@ -1,5 +1,6 @@
 package br.com.nagata.dev.controller;
 
+import br.com.nagata.dev.model.Post;
 import br.com.nagata.dev.model.User;
 import br.com.nagata.dev.model.dto.UserDTO;
 import br.com.nagata.dev.service.UserService;
@@ -56,5 +57,10 @@ public class UserController {
     user.setId(id);
     service.update(user);
     return ResponseEntity.noContent().build();
+  }
+
+  @GetMapping("/{id}/posts")
+  public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+    return ResponseEntity.ok(service.findById(id).getPosts());
   }
 }

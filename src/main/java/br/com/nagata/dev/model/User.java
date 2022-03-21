@@ -10,7 +10,6 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -26,7 +25,7 @@ public class User implements Serializable {
   private String email;
 
   @DBRef(lazy = true)
-  private List<Post> posts = new ArrayList<>();
+  private List<Post> posts;
 
   public User(UserDTO dto) {
     this.name = dto.getName();
