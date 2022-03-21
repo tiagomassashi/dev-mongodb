@@ -10,6 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 @Configuration
@@ -28,9 +29,9 @@ public class Instantiation implements CommandLineRunner {
     userRepository.deleteAll();
     postRepository.deleteAll();
 
-    User maria = new User(null, "Maria Brown", "maria@gmail.com");
-    User alex = new User(null, "Alex Green", "alex@gmail.com");
-    User bob = new User(null, "Bob Grey", "bob@gmail.com");
+    User maria = new User(null, "Maria Brown", "maria@gmail.com", new ArrayList<>());
+    User alex = new User(null, "Alex Green", "alex@gmail.com", new ArrayList<>());
+    User bob = new User(null, "Bob Grey", "bob@gmail.com", new ArrayList<>());
 
     userRepository.saveAll(Arrays.asList(maria, alex, bob));
 
@@ -51,5 +52,7 @@ public class Instantiation implements CommandLineRunner {
             new AuthorDTO(maria));
 
     postRepository.saveAll(Arrays.asList(post1, post2));
+    maria.getPosts().addAll(Arrays.asList(post1, post2));
+    userRepository.save(maria);
   }
 }
