@@ -1,5 +1,6 @@
 package br.com.nagata.dev.model;
 
+import br.com.nagata.dev.model.dto.AuthorDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,5 +23,5 @@ public class Post implements Serializable {
   private LocalDate date;
   private String title;
   private String body;
-  private User author;
+  private AuthorDTO author;
 }
