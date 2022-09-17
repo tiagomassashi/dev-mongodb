@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Configuration;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 @Configuration
 public class Instantiation implements CommandLineRunner {
@@ -63,7 +62,7 @@ public class Instantiation implements CommandLineRunner {
         new CommentDTO("Tenha um ótimo dia!", LocalDate.of(2018, 3, 23), new AuthorDTO(alex));
 
     post1.getComments().addAll(Arrays.asList(comment1, comment2));
-    post2.getComments().addAll(List.of(comment3));
+    post2.getComments().add(comment3);
 
     postRepository.saveAll(Arrays.asList(post1, post2));
     maria.getPosts().addAll(Arrays.asList(post1, post2));
